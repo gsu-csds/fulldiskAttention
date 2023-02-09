@@ -18,7 +18,7 @@ converted to NOAA/GOES flare classes observed in the next 24 hours. See figure b
 
 ##### 1. download_mag:
 
-This folder/package contains one python module, <b>"download_jp2.py"</b>. 
+This folder/package contains one python module, "download_jp2.py". 
 There are two functions inside this module.
 First Function: "download_from_helioviewer()" downloads jp2 magnetograms from helioveiwer api : [Helioviewer](https://api.helioviewer.org/docs/v2/api/api_groups/jpeg2000.html)
 Second Function: "jp2_to_jpg_conversion()" converts jp2s to jpgs for faster computation. If resize=True, pass height and width to resize the magnetograms
