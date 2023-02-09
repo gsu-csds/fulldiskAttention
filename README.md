@@ -58,8 +58,5 @@ python train.py --fold=4 --epochs=10 --attention=0
 ##### 4. result_analysis:
 
 Hellow
-This folder contains 3 jupyter notebooks for evaluating the models.<br /> 
-(a) Attention_Predictions.ipynb : This notebooks shows our validation skill scores for all attention-based trained models in 4 folds expt. Furthermore contains flares predictions in central and near-limb locations. <br /> 
-(b) No_Attention_Predictions.ipynb : This notebooks shows our validation skill scores for all standard CNN trained models in 4 folds expt. Furthermore contains flares predictions in central and near-limb locations.<br /> 
-(c) Attention_Maps_Visualize.ipynb: Visualizes 3 instances including two True Positives (east and west limb flares) and one False Positive instance using Attention-Estimator-2 of the trained attention-based model in fold 1. Three instances locations are stored inside plots.csv file.
+
 ---
