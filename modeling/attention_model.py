@@ -2,12 +2,12 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 from blocks import LinearAttentionBlock, ProjectorBlock
-from attention.initialize import *
+from initialize import *
 
-'''
-attention before max-pooling
-'''
-
+"""
+Architecture of the attention-based full-disk model. 
+Passing attention=False will switch the model to standard CNN pipeline
+"""
 class Attn_Net(nn.Module):
     def __init__(self, im_size, num_classes, attention=True, normalize_attn=True, init='kaimingUniform'):
         super(Attn_Net, self).__init__()
