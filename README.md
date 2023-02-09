@@ -18,7 +18,7 @@ converted to NOAA/GOES flare classes observed in the next 24 hours. See figure b
 
 ##### 1. download_mag:
 
-This folder/package contains one python module, "download_jp2.py". 
+This folder/package contains one python module, <b>"download_jp2.py"</b>. 
 There are two functions inside this module.
 First Function: "download_from_helioviewer()" downloads jp2 magnetograms from helioveiwer api : [Helioviewer](https://api.helioviewer.org/docs/v2/api/api_groups/jpeg2000.html)
 Second Function: "jp2_to_jpg_conversion()" converts jp2s to jpgs for faster computation. If resize=True, pass height and width to resize the magnetograms
@@ -60,8 +60,8 @@ python train.py --fold=4 --epochs=10 --attention=0
 
 This folder contains 3 jupyter notebooks for evaluating the models.<br /> 
 
-(a) Attention_Predictions.ipynb : This notebooks shows our validation skill scores for all attention-based trained models in 4 folds expt. Furthermore contains flares predictions in central and near-limb locations. <br /> 
-(b) No_Attention_Predictions.ipynb : This notebooks shows our validation skill scores for all standard CNN trained models in 4 folds expt. Furthermore contains flares predictions in central and near-limb locations.<br /> 
+(a) Attention_Predictions.ipynb : This notebook shows our validation skill scores for all attention-based trained models in 4 folds expt. Furthermore contains flares predictions in central and near-limb locations. <br /> 
+(b) No_Attention_Predictions.ipynb : This notebook shows our validation skill scores for all standard CNN trained models in 4 folds expt. Furthermore contains flares predictions in central and near-limb locations.<br /> 
 (c) Attention_Maps_Visualize.ipynb: Visualizes 3 instances including two True Positives (east and west limb flares) and one False Positive instance using Attention-Estimator-2 of the trained attention-based model in fold 1. Three instances locations are stored inside plots.csv file.
 
 ---
