@@ -7,3 +7,8 @@ In this work, we developed an attention-based deep learning model as an improvem
 
 ### Architecture of the Attention-based Full-disk Model
 ![alt text](https://github.com/chetrajpandey/fulldiskAttention/blob/main/readme_resoc/attn_arch.png?raw=true)
+
+### Data Labeling
+We labeled our data with a prediction window of 24 hours. The images are labeled based on the maximum peak X-ray flux values,
+converted to NOAA/GOES flare classes observed in the next 24 hours. See figure below:
+![alt text](https://github.com/chetrajpandey/fulldiskAttention/blob/main/readme_resoc/data_label.png?raw=true)
