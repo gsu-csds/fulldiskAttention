@@ -55,4 +55,8 @@ python train.py --fold=1 --epochs=50 --attention=1<br />
 To run the second fold with standard CNN for 10 epochs:<br /> 
 python train.py --fold=4 --epochs=10 --attention=0
 
+##### 4. result_analysis:
+
+Hellow
+
 ---
