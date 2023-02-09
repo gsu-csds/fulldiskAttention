@@ -207,7 +207,7 @@ def train():
         attn = True
     else:
         savemodel = f'trained_models/no_attention/fold_{opt.fold}_no_attn.pth'
-        bestmodel = f'trained_models/attention/best_fold_{opt.fold}_no_attn.pth'
+        bestmodel = f'trained_models/no_attention/best_fold_{opt.fold}_no_attn.pth'
         attn = False
 
     net = Attn_Net(im_size=opt.im_size, num_classes=2, attention=attn, init='kaimingUniform').to(device)
