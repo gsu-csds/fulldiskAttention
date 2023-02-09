@@ -31,4 +31,33 @@ Generated labels are stored inside data_labels.
 labeling.py generates labels with multiple columns that we can use for post result analysis. Information about flares locations, and any other flares that occured with in the period of 24 hours.
 For simplification:  folder inside data_labels, named simplified_data_labels that contains two columns--the name of the file and actual target that is sufficient to train the model.
 
+##### 3. modeling:
+The code is optimized and can only be used with two cuda devices using nn.dataparallel. For single GPU use please make modifications in train.py under model configuration. <br /> 
+Contains all the trained models inside directory trained_models. attention-based inside attention and standard cnn inside no_attention.<br /> 
+(a) attention_model.py: This module contains the architecture of both the model. Passing attention=True activates attention architecture and False activates standard CNN pipeline.<br /> 
+(b) blocks.py: This module contains the linearattention block and projector block required by attention_model.py for attention-based model.<br /> 
+(c) dataloader.py: This contains custom-defined data loaders for loading FL and NF class for selected augmentations.<br /> 
+(d) evaluation.py: This includes functions to convert tensors to sklearn compatible array to compute confusion matrix. Furthermore TSS and HSS skill scores definition.<br /> 
+(e) initialize.py: This module contains Kaiming intialization functions for convolution, batchnorm and linear blocks. Default is KaimingUniform.<br /> <br /> 
+(f) train.py: This module is the main module to train the model. Uses argument parsers for parameters change. This has seven paramters to change the model configuration:<br /> 
+(i) --fold: choose from 1 to 4, to run the corresponding fold in 4CV-cross validation; default=1<br /> 
+(ii) --epochs: number of epochs; default=30<br /> 
+(iii) --batch_size: default=128<br /> 
+(iv) --im_size: Size of the input image; default=256<br /> 
+(v) --attention: Select architecture: 1 for attention-based use any integer for standard CNN. Default=1<br /> 
+(vi) --lr: initial learning rate selection; default=0.001<br /> 
+(vii) --weight_decay: regularization parameter used by the loss function; default=0.5<br /> 
+
+For Example: <br /> 
+To run the first fold with attention for 50 epochs:<br /> 
+python train.py --fold=1 --epochs=50 --attention=1<br /> 
+To run the second fold with standard CNN for 10 epochs:<br /> 
+python train.py --fold=4 --epochs=10 --attention=0
+
+
+##### 4. result_analysis:
+This folder contains 3 jupyter notebooks for evaluating the models.<br /> 
+(a) Attention_Predictions.ipynb : This notebooks shows our validation skill scores for all attention-based trained models in 4 folds expt. Furthermore contains flares predictions in central and near-limb locations. <br /> 
+(b) No_Attention_Predictions.ipynb : This notebooks shows our validation skill scores for all standard CNN trained models in 4 folds expt. Furthermore contains flares predictions in central and near-limb locations.<br /> 
+(c) Attention_Maps_Visualize.ipynb: Visualizes 3 instances including two True Positives (east and west limb flares) and one False Positive instance using Attention-Estimator-2 of the trained attention-based model in fold 1. Three instances locations are stored inside plots.csv
 ---
