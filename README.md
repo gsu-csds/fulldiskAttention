@@ -27,6 +27,8 @@ Second Function: "jp2_to_jpg_conversion()" converts jp2s to jpgs for faster comp
 
 Run python labeling.py : Contains functions to generate labels, binarize, filtering files, and creating 4-fold CV dataset.
 Reads goes_integrated_flares.csv files from data_source.
-Generated labels are stored inside data_labels.
+Generated labels are stored inside data_labels. 
+labeling.py generates labels with multiple columns that we can use for post result analysis. Information about flares locations, and any other flares that occured with in the period of 24 hours.
+For simplification:  folder inside data_labels, named simplified_data_labels that contains two columns--the name of the file and actual target that is sufficient to train the model.
 
 ---
