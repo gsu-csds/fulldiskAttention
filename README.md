@@ -57,6 +57,7 @@ python train.py --fold=4 --epochs=10 --attention=0
 
 
 ##### 4. result_analysis <br /> 
+
 This folder contains 3 jupyter notebooks for evaluating the models.<br /> 
 (a) Attention_Predictions.ipynb : This notebooks shows our validation skill scores for all attention-based trained models in 4 folds expt. Furthermore contains flares predictions in central and near-limb locations. <br /> 
 (b) No_Attention_Predictions.ipynb : This notebooks shows our validation skill scores for all standard CNN trained models in 4 folds expt. Furthermore contains flares predictions in central and near-limb locations.<br /> 
