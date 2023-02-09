@@ -5,6 +5,7 @@ import pandas as pd
 import numpy as np
 import os, sys, csv
 import shutil
+import cv2
 
 def download_from_helioviewer():
     """
@@ -69,5 +70,42 @@ def download_from_helioviewer():
     #Total Files Downloaded
     print('Total Files Downloaded: ', counter)
 
+def jp2_to_jpg_conversion(resize=False, width=512, height=512):
+    """
+    This function reads the jp2s stored inside the source directory into jpgs and store in destination directory
+    if resize =  True, it will resize the jpgs to specified dimension.
+    """
+    source = '/data/hmi_compressd/'
+    destination = '/data/hmi_jpgs/'
+    with open('totalfiles.csv','w',newline='',encoding='utf-8-sig') as f:
+        w = csv.writer(f)
+        for path, subdirs, files in os.walk(source):
+            for name in files:
+                w.writerow([os.path.join(path, name), os.path.getsize(os.path.join(path, name))])
+    colnames=['path', 'size'] 
+    df = pd.read_csv('totalfiles.csv', header=None, names=colnames)
+    df['timestamp'] = df['path'].str[31:].str[5:-4]
+    lis=  []
+    for i in range(len(df)):
+        dt = datetime.datetime.strptime(df['timestamp'][i], '%Y.%m.%d_%H.%M.%S')
+        Path(f'{destination}/{dt.year}/{dt.month:02d}/{dt.day:02d}').mkdir(parents=True, exist_ok=True)
+        #Defining name of downloaded images based on the date and time
+        filename = 'HMI.m' + str(dt.year) + '.' +  f'{dt.month:02d}' + '.' + f'{dt.day:02d}' + '_'\
+            + f'{dt.hour:02d}' + '.' + f'{dt.minute:02d}' + '.' + f'{dt.second:02d}' + '.jpg'
+        file_loc_with_name = f'{destination}/{dt.year}/{dt.month:02d}/{dt.day:02d}/' + filename
+        try:
+            image = cv2.imread(str(df.path[i]), cv2.IMREAD_UNCHANGED)
+            if resize:
+                image = cv2.resize(image, (width, height), interpolation = cv2.INTER_AREA)
+            cv2.imwrite(file_loc_with_name, image)
+            print(i, df.timestamp[i], 'Converted')
+        except:
+            print('Error Occured!')
+            lis.append([df['path'][i]])
+            pass
+
+
+
 if __name__ == '__main__':
     download_from_helioviewer()
+    jp2_to_jpg_conversion()
