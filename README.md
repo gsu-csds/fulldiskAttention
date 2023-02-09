@@ -1,4 +1,6 @@
 ## Towards Interpretable Solar Flare Prediction with Attention-based Deep Neural Networks
+[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
+
 In this work, we developed an attention-based deep learning model as an improvement over the standard CNN pipeline to perform full-disk binary flare predictions for the occurrence of ≥M1.0-class flares within the next 24 hours.
 
 ### Architecture of Standard CNN Pipeline based Full-disk Model
