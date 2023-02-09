@@ -38,13 +38,13 @@ Contains all the trained models inside directory trained_models. attention-based
 (b) blocks.py: This module contains the linearattention block and projector block required by attention_model.py for attention-based model.<br /> 
 (c) dataloader.py: This contains custom-defined data loaders for loading FL and NF class for selected augmentations.<br /> 
 (d) evaluation.py: This includes functions to convert tensors to sklearn compatible array to compute confusion matrix. Furthermore TSS and HSS skill scores definition.<br /> 
-(e) initialize.py: This module contains Kaiming intialization functions for convolution, batchnorm and linear blocks. Default is KaimingUniform.<br /> <br /> 
+(e) initialize.py: This module contains Kaiming intialization functions for convolution, batchnorm and linear blocks. Default is KaimingUniform.<br /> 
 (f) train.py: This module is the main module to train the model. Uses argument parsers for parameters change. This has seven paramters to change the model configuration:<br /> 
 (i) --fold: choose from 1 to 4, to run the corresponding fold in 4CV-cross validation; default=1<br /> 
 (ii) --epochs: number of epochs; default=30<br /> 
 (iii) --batch_size: default=128<br /> 
 (iv) --im_size: Size of the input image; default=256<br /> 
-(v) --attention: Select architecture: 1 for attention-based use any integer for standard CNN. Default=1<br /> 
+(v) --attention: Select architecture: 1 for attention-based use any integer for standard CNN; default=1<br /> 
 (vi) --lr: initial learning rate selection; default=0.001<br /> 
 (vii) --weight_decay: regularization parameter used by the loss function; default=0.5<br /> 
 
@@ -56,8 +56,9 @@ python train.py --fold=4 --epochs=10 --attention=0
 
 
 ##### 4. result_analysis:
+
 This folder contains 3 jupyter notebooks for evaluating the models.<br /> 
 (a) Attention_Predictions.ipynb : This notebooks shows our validation skill scores for all attention-based trained models in 4 folds expt. Furthermore contains flares predictions in central and near-limb locations. <br /> 
 (b) No_Attention_Predictions.ipynb : This notebooks shows our validation skill scores for all standard CNN trained models in 4 folds expt. Furthermore contains flares predictions in central and near-limb locations.<br /> 
-(c) Attention_Maps_Visualize.ipynb: Visualizes 3 instances including two True Positives (east and west limb flares) and one False Positive instance using Attention-Estimator-2 of the trained attention-based model in fold 1. Three instances locations are stored inside plots.csv
+(c) Attention_Maps_Visualize.ipynb: Visualizes 3 instances including two True Positives (east and west limb flares) and one False Positive instance using Attention-Estimator-2 of the trained attention-based model in fold 1. Three instances locations are stored inside plots.csv file.
 ---
