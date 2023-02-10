@@ -1,5 +1,5 @@
 ## Towards Interpretable Solar Flare Prediction with Attention-based Deep Neural Networks
-[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](LICENCE)
+[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](LICENSE)
 
 In this work, we developed an attention-based deep learning model as an improvement over the standard CNN pipeline to perform full-disk binary flare predictions for the occurrence of ≥M1.0-class flares within the next 24 hours.
 
@@ -31,12 +31,11 @@ Run python labeling.py : Contains functions to generate labels, binarize, filter
 Reads goes_integrated_flares.csv files from data_source.
 Generated labels are stored inside data_labels. 
 labeling.py generates labels with multiple columns that we can use for post result analysis. Information about flares locations, and any other flares that occured with in the period of 24 hours.
-For simplification:  folder inside data_labels, named simplified_data_labels that contains two columns--the name of the file and actual target that is sufficient to train the model.
+For simplification:  folder inside data_labels, named simplified_data_labels that contains two columns: the name of the file and actual target that is sufficient to train the model.
 
 ##### 3. modeling:
 
-The code is optimized and can only be used with two cuda devices using nn.dataparallel. For single GPU use please make modifications in train.py under model configuration. <br /> 
-Contains all the trained models inside directory trained_models. attention-based inside attention and standard cnn inside no_attention.<br /> 
+The code is optimized and can only be used with two cuda devices using nn.dataparallel. For single GPU use please make modifications in train.py under model configuration. It Contains all the trained models inside directory trained_models. attention-based inside attention and standard cnn inside no_attention.<br /> <br /> 
 (a) attention_model.py: This module contains the architecture of both the model. Passing attention=True activates attention architecture and False activates standard CNN pipeline.<br /> 
 (b) blocks.py: This module contains the linearattention block and projector block required by attention_model.py for attention-based model.<br /> 
 (c) dataloader.py: This contains custom-defined data loaders for loading FL and NF class for selected augmentations.<br /> 
@@ -55,7 +54,7 @@ For Example: <br />
 To run the first fold with attention for 50 epochs:<br /> 
 python train.py --fold=1 --epochs=50 --attention=1<br /> 
 To run the second fold with standard CNN for 10 epochs:<br /> 
-python train.py --fold=4 --epochs=10 --attention=0
+python train.py --fold=2 --epochs=10 --attention=0
 
 ##### 4. result_analysis:
 
