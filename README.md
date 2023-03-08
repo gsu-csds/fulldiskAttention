@@ -1,5 +1,8 @@
 ## Towards Interpretable Solar Flare Prediction with Attention-based Deep Neural Networks
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](LICENSE)
+[![python](https://img.shields.io/badge/Python-3.7.11-3776AB.svg?style=flat&logo=python&logoColor=white)](https://www.python.org)
+[![jupyter](https://img.shields.io/badge/Jupyter-Notebook-F37626.svg?style=flat&logo=Jupyter)](https://jupyterlab.readthedocs.io/en/stable)
+[![pytorch](https://img.shields.io/badge/PyTorch-1.10.0-EE4C2C.svg?style=flat&logo=pytorch)](https://pytorch.org)
 
 In this work, we developed an attention-based deep learning model as an improvement over the standard CNN pipeline to perform full-disk binary flare predictions for the occurrence of ≥M1.0-class flares within the next 24 hours.
 
